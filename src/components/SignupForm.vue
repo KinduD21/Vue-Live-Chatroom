@@ -21,8 +21,9 @@
       v-model="password"
       class="mx-auto my-2.5 w-full rounded-2xl border border-gray-200 p-2.5 text-gray-400"
     />
+    <p class="text-lg text-red-500">{{ error }}</p>
     <button
-      class="mt-2.5 rounded-3xl bg-emerald-400 px-7 py-2.5 text-xl text-white"
+      class="mt-2.5 rounded-3xl bg-emerald-400 px-7 pb-2.5 pt-2 text-xl text-white duration-100 hover:drop-shadow-lg"
     >
       Sign up
     </button>
@@ -31,12 +32,23 @@
 
 <script setup>
 import { ref } from "vue";
+import useSignup from "../composables/useSignup";
+
+const emit = defineEmits(["signup"]);
 
 const displayName = ref("");
 const email = ref("");
 const password = ref("");
 
-const handleSubmit = () => {
-  console.log(displayName.value, email.value, password.value);
+const { error, signup } = useSignup();
+
+const handleSubmit = async () => {
+  await signup(email.value, password.value, displayName.value);
+  if (!error.value) {
+    emit("signup");
+    displayName.value = "";
+    email.value = "";
+    password.value = "";
+  }
 };
 </script>
