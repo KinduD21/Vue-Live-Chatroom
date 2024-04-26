@@ -4,8 +4,8 @@
     class="flex items-center justify-between border-b border-gray-100 p-5"
   >
     <div>
-      <p class="my-1 text-left text-lg text-gray-600">
-        Hey there {{ user.displayName }}
+      <p class="my-1 text-left text-lg font-semibold text-gray-600">
+        Hey there, {{ user.displayName }}
       </p>
       <p class="my-1 text-left text-base text-gray-400">
         Currently logged in as {{ user.email }}
