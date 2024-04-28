@@ -25,14 +25,15 @@
 
 <script setup>
 import { ref } from "vue";
-import useLogin from "../composables/useLogin";
+import { getUserStore } from "../stores/UserStore";
 
 const emit = defineEmits(["login"]);
 
 const email = ref("");
 const password = ref("");
 
-const { error, login } = useLogin();
+const userStore = getUserStore();
+const { error, login } = userStore.useLogin();
 
 const handleSubmit = async () => {
   await login(email.value, password.value);

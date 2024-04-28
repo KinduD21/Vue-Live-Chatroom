@@ -21,11 +21,12 @@
 </template>
 
 <script setup>
-import useLogout from "../composables/useLogout";
-import getUser from "../composables/getUser";
+import { getUserStore } from "../stores/UserStore";
 
-const { error, logout } = useLogout();
-const { user } = getUser();
+const userStore = getUserStore();
+
+const { error, logout } = userStore.useLogout();
+const { user } = userStore.getUser();
 
 const handleClick = async () => {
   await logout();

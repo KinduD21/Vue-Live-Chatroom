@@ -32,7 +32,7 @@
 
 <script setup>
 import { ref } from "vue";
-import useSignup from "../composables/useSignup";
+import { getUserStore } from "../stores/UserStore";
 
 const emit = defineEmits(["signup"]);
 
@@ -40,7 +40,8 @@ const displayName = ref("");
 const email = ref("");
 const password = ref("");
 
-const { error, signup } = useSignup();
+const userStore = getUserStore();
+const { error, signup } = userStore.useSignup();
 
 const handleSubmit = async () => {
   await signup(email.value, password.value, displayName.value);
