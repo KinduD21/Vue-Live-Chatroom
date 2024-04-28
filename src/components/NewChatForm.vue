@@ -12,13 +12,15 @@
 
 <script setup>
 import { ref } from "vue";
-import getUser from "../composables/getUser";
+import { getUserStore } from "../stores/UserStore";
 import { timestamp } from "../firebase/config";
-import useCollection from "../composables/useCollection";
+import { useCollectionStore } from "../stores/CollectionStore";
 
 const message = ref("");
-const { user } = getUser();
-const { addDoc, error } = useCollection("messages");
+const userStore = getUserStore();
+const { user } = userStore.getUser();
+const collectionStore = useCollectionStore();
+const { addDoc, error } = collectionStore.useCollection("messages");
 
 const handleSubmit = async () => {
   const chat = {

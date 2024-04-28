@@ -14,11 +14,12 @@
 </template>
 
 <script setup>
-import getCollection from "../composables/getCollection";
+import { useCollectionStore } from "../stores/CollectionStore";
 import { formatDistanceToNow } from "date-fns";
 import { computed, onUpdated, ref } from "vue";
 
-const { documents, error } = getCollection("messages");
+const collectionStore = useCollectionStore();
+const { documents, error } = collectionStore.getCollection("messages");
 
 const formattedDocuments = computed(() => {
   if (documents.value) {

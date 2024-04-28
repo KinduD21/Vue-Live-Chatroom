@@ -14,10 +14,11 @@ import { watch } from "vue";
 import NewChatForm from "../components/NewChatForm.vue";
 import ChatWindow from "../components/ChatWindow.vue";
 import Navbar from "../components/Navbar.vue";
-import getUser from "../composables/getUser";
+import { getUserStore } from "../stores/UserStore";
 
 const router = useRouter();
-const { user } = getUser();
+const userStore = getUserStore();
+const { user } = userStore.getUser();
 
 watch(user, () => {
   if (!user.value) {
