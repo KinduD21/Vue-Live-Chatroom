@@ -1,8 +1,8 @@
 <template>
   <div
-    class="mx-10 my-20 max-w-5xl rounded-3xl bg-white px-0 py-5 text-center lg:mx-auto"
+    class="m-10 max-w-5xl rounded-3xl bg-white px-0 py-5 text-center lg:mx-auto lg:my-20"
   >
-    <p>Welcome</p>
+    <p class="my-3">Welcome to your Live Chatroom!</p>
     <div v-if="showLogin">
       <h2 class="text-3xl font-bold">Login</h2>
       <LoginForm @login="enterChat" />

@@ -1,5 +1,8 @@
 <template>
-  <form @submit.prevent="handleSubmit" class="mx-auto my-5 w-80">
+  <form
+    @submit.prevent="handleSubmit"
+    class="mx-auto my-5 flex w-80 flex-col px-3"
+  >
     <input
       type="email"
       required

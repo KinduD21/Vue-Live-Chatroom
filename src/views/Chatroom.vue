@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-10 my-20 max-w-5xl rounded-3xl bg-white text-center lg:mx-auto"
+    class="m-10 max-w-5xl rounded-3xl bg-white px-0 py-5 text-center lg:mx-auto lg:my-20"
   >
     <Navbar />
     <ChatWindow />

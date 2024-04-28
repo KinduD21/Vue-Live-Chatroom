@@ -6,14 +6,16 @@ export const getUserStore = defineStore("userStore", () => {
   const user = ref(projectAuth.currentUser);
   const error = ref(null);
 
+  //* GET USER FUNCTION
   projectAuth.onAuthStateChanged((_user) => {
     user.value = _user;
   });
-
+  
   const getUser = () => {
     return { user };
   };
 
+  //* LOGIN FUNCTION
   const login = async (email, password) => {
     error.value = null;
 
@@ -31,6 +33,7 @@ export const getUserStore = defineStore("userStore", () => {
     return { error, login };
   };
 
+  //* LOGOUT FUNCTION
   const logout = async () => {
     error.value = null;
 
@@ -46,6 +49,7 @@ export const getUserStore = defineStore("userStore", () => {
     return { error, logout };
   };
 
+  //* SIGNUP FUNCTION
   const signup = async (email, password, displayName) => {
     error.value = null;
     try {
